@@ -1,0 +1,435 @@
+﻿The order of things I built:
+
+- Field tab
+- Field generate lv
+- FieldData & stored procedures
+- Field add
+- Field edit
+- Field remove/reactivate
+- Field show only active/ show all checkbox
+- Field search for by Id
+
+
+- Production tab
+- Production generate lv
+
+- Production/Chemical relationship table
+- Production/Chemical lv generate
+- Production/ChemicalData & stored procedures
+- Production/Chemical add relationship
+- Production/Chemical edit
+- Production/Chemical remove/reactivate
+
+- ProductionData & stored procedures
+- Production add
+- Prouction Edit
+- Production Search for by ID
+- Production Remove/Reactivate
+- Produciton show only active/ show all checkbox
+
+- Production show only active/ show all checkbox
+
+- ChemicalData & stored procedures
+- SeedData & stored procedures
+- BrandData & stored procedures
+
+- Chemical generate lv
+
+
+
+
+Naming conventions:
+
+Tab : tpName
+	-tpProduction
+	-tpField
+
+GroupBox: gbName
+
+ListView Column Header: lvcName
+
+Checkbox: chbxName
+
+Combobox: cboName
+
+
+
+
+
+
+
+
+ListViews
+	-FullRowSelect: True
+	-MultiSelect: False
+	-View: Details
+
+
+
+Application Form settings
+	-double click on My Project
+		-Things to change
+			-Startup form
+			-Shutdown mode
+
+	-Dialog Box
+		-FormBorderStyle: FixedDialog
+		-ControlBox: False
+		-MaximizeBox: False
+		-MinmizeBox: False
+
+
+		btnCancel
+			DialogResult: Cancel
+		
+		ComboBox
+			DropdownStyle: DropDownList
+
+
+
+
+		338	385
+
+
+
+
+
+' OLD EDIT FIELD CODE
+
+Private Sub btnEditField_Click(sender As System.Object, e As System.EventArgs) Handles btnEditField.Click
+
+        Dim selectedField = Me.lvField.SelectedItems
+        Dim editFieldForm As New frmEditField
+
+        myField = New Field
+
+        'Dim selectedID As Integer
+        'Dim selectedFieldName As String
+        'Dim selectedAcres As Integer
+        'Dim selectedOwner As String
+
+
+
+
+        If selectedField.Count Then
+            'selectedID = CInt(selectedField(0).SubItems(0).Text)
+            'selectedFieldName = selectedField(0).SubItems(1).Text
+            'selectedAcres = CInt(selectedField(0).SubItems(2).Text)
+            'selectedOwner = selectedField(0).SubItems(3).Text
+            'MsgBox(selectedID & " " & selectedFieldName & " " & selectedAcres & " " & selectedOwner)
+
+
+            'editFieldForm.txtEditFieldID.Text = selectedID
+            'editFieldForm.txtEditFieldName.Text = selectedFieldName
+            'editFieldForm.txtEditAcre.Text = selectedAcres
+            'editFieldForm.txtEditOwner.Text = selectedOwner
+
+            myField.FieldID = CInt(selectedField(0).SubItems(0).Text)
+            myField.FieldName = selectedField(0).SubItems(1).Text
+            myField.Acres = CInt(selectedField(0).SubItems(2).Text)
+            myField.Owner = selectedField(0).SubItems(3).Text
+
+            Dim selectedEditButton As DialogResult = editFieldForm.ShowDialog
+
+            If selectedEditButton = DialogResult.OK Then
+                MsgBox(editFieldForm.Tag.ToString)
+                populateFieldListview(lvField, 0, True)
+                Me.btnEditField.Enabled = False
+
+            End If
+
+        End If
+
+    End Sub
+
+
+
+	11/26/13
+	before join with other edit from search
+	Imports FarmBLL
+Imports FarmDataTypes
+
+
+Public Class frmEditField
+    Public fromSearch As Boolean
+    Private _oldField As Field
+    Private _newField As Field
+    Private _myFieldManager As FieldManager
+
+
+    Private Sub frmEditField_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+
+
+        _myFieldManager = New FieldManager
+
+        _oldField = New Field
+
+
+
+        _oldField.FieldID = frmFarm.myField.FieldID
+        _oldField.FieldName = frmFarm.myField.FieldName
+        _oldField.Acres = frmFarm.myField.Acres
+        _oldField.Owner = frmFarm.myField.Owner
+
+        Me.txtEditFieldID.Text = frmFarm.myField.FieldID
+        Me.txtEditFieldName.Text = frmFarm.myField.FieldName
+        Me.txtEditAcre.Text = frmFarm.myField.Acres
+        Me.txtEditOwner.Text = frmFarm.myField.Owner
+
+
+        MsgBox(_oldField.FieldName)
+
+    End Sub
+
+
+
+
+
+
+    Private Sub btnAcceptEdit_Click(sender As System.Object, e As System.EventArgs) Handles btnAcceptEdit.Click
+
+        'TODO!
+        'validateData()
+        editCall()
+
+
+    End Sub
+
+
+
+    Private Sub editCall()
+
+        _newField = New Field
+
+        ' _newField.FieldID = CInt(txtEditFieldID.Text)
+        _newField.FieldID = frmFarm.myField.FieldID
+        _newField.FieldName = txtEditFieldName.Text
+        _newField.Acres = CInt(txtEditAcre.Text)
+        _newField.Owner = txtEditOwner.Text
+
+
+        Dim results As String = ""
+
+        MsgBox(_newField.FieldName)
+
+        results = _myFieldManager.editField(_oldField, _newField)
+
+        ' MsgBox(results)
+
+        Me.Tag = results
+        Me.DialogResult = DialogResult.OK
+
+
+        'Me.Close()
+
+        ' frmFarm.btnEditField.Enabled = False
+
+
+    End Sub
+
+
+
+
+End Class
+
+
+SELECT p.ProductionID, p.Year, p.PlantDate, p.HarvestDate, p.Yield, p.FieldID, f.FieldName, b.BrandName, p.SeedID, s.Variety, p.Active
+
+
+FROM Brand b
+Join Seed s
+on b.BrandID = s.BrandID
+JOIN Production p 
+ON s.SeedID = p.SeedID
+JOIN Field f 
+ON p.FieldID = f.FieldID
+
+
+
+
+ Dim selectedField = Me.lvField.SelectedItems
+        Dim swapActiveFieldForm As New frmSwapActiveField
+
+        If selectedField.Count Then
+            myField = New Field
+
+            myField.FieldID = CInt(selectedField(0).SubItems(0).Text)
+            myField.FieldName = selectedField(0).SubItems(1).Text
+            myField.Acres = CInt(selectedField(0).SubItems(2).Text)
+            myField.Owner = selectedField(0).SubItems(3).Text
+            myField.Active = CBool(selectedField(0).SubItems(4).Text)
+
+            If myField.Active = False And remove = True Then
+                MsgBox("This field is already inactive!")
+            ElseIf myField.Active = True And remove = False Then
+                MsgBox("This field is already active!")
+            Else
+
+                Dim selectedRemoveButton As DialogResult = swapActiveFieldForm.ShowDialog
+
+                If selectedRemoveButton = DialogResult.OK Then
+                    MsgBox(swapActiveFieldForm.Tag.ToString & " frmFarm")
+
+                    populateFieldListview(lvField, 0, True)
+
+                End If
+            End If 'end redunancy check
+
+            disableFieldButtons()
+            Me.myField = Nothing
+        End If
+
+
+
+
+
+
+
+
+===================================================================
+   'from frmProductionAdd - removed 12/1/13
+
+    Private Sub loadComboBoxes()
+
+
+
+        'Dim fieldNameList As List(Of String) = _myFieldManager.getFieldNames()
+        'For Each name As String In fieldNameList
+        '    cboFieldNames.Items.Add(name)
+        'Next
+
+        fieldList = _myFieldManager.getFieldList(0, True, True)
+        For Each field As Field In fieldList
+            cboFieldNames.Items.Add(field.FieldName)
+        Next
+
+
+
+
+        'Dim seedVarietyList As List(Of String) = _mySeedManager.getSeedVarieties()
+        'For Each variety As String In seedVarietyList
+        '    cboSeedVarieties.Items.Add(variety)
+        'Next
+
+        seedList = _mySeedManager.getSeedList(0, True, True)
+        For Each Seed As Seed In seedList
+            cboSeedVarieties.Items.Add(Seed.Variety)
+        Next
+
+
+
+    End Sub
+
+
+===================================================================
+
+before changes of merging production edit with production search
+
+Imports FarmBLL
+Imports FarmDataTypes
+
+Public Class frmProductionEditSearch
+
+    Private _myFieldManager As FieldManager
+    Private _mySeedManager As SeedManager
+    Private fieldList As List(Of Field)
+    Private seedList As List(Of Seed)
+    Private _myProductionManager As ProductionManager
+
+    Private _oldProductionID As Integer
+    Private _oldProduction As ProductionVB
+
+    Public Sub New(ByVal productionID As Integer, Optional ByVal search As Boolean = False)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        If productionID < 0 Then
+            Dim ex As New ApplicationException("No Production was selected to Edit")
+            Throw ex
+        End If
+        _oldProductionID = productionID
+
+    End Sub
+
+
+    Private Sub frmProductionEdit_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+        _myFieldManager = New FieldManager
+        _mySeedManager = New SeedManager
+        _myProductionManager = New ProductionManager
+
+        _oldProduction = _myProductionManager.getProductionVB(_oldProductionID)
+
+        loadComboBoxes()
+    End Sub
+
+
+    Private Sub loadComboBoxes()
+
+        'load field combo list
+        fieldList = _myFieldManager.getFieldList(0, True, True)
+        For Each field As Field In fieldList
+            cboFieldNames.Items.Add(field.FieldName)
+        Next
+        cboFieldNames.SelectedIndex = _oldProduction.FieldID - 1
+
+
+        'load seed combo list
+        seedList = _mySeedManager.getSeedList(0, True, True)
+        For Each Seed As Seed In seedList
+            cboSeedVarieties.Items.Add(Seed.Variety)
+        Next
+        cboSeedVarieties.SelectedIndex = _oldProduction.SeedID - 1
+
+
+        'load Production Year combo box
+
+        Dim beginYear As Integer = 1970
+        Dim endYear As Integer = DateTime.Today.Year
+        Do While beginYear <= endYear
+            cboProductionYear.Items.Add(beginYear)
+            beginYear += 1
+        Loop
+        Me.cboProductionYear.SelectedIndex = Me.cboProductionYear.Items.IndexOf(_oldProduction.Year)
+
+        'load Yield Production box
+
+        Dim yield As Integer = 0
+        Dim endYield As Integer = 200
+        Do While yield <= endYield
+            cboYield.Items.Add(yield)
+            yield += 1
+        Loop
+        cboYield.SelectedValue = _oldProduction.Yield
+        Me.cboYield.SelectedIndex = Me.cboYield.Items.IndexOf(_oldProduction.Yield)
+    End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+End Class
+
+
+
+
+		==============================================================
+		TODO LIST
+		
+		change frmAddField to accept object
+		change frmSwapActiveField to accept object
+		change frmEditField to accept object
+		change frmProdChemAdd to accept object
+		change frm to accept object

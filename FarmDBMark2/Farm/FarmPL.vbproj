@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4D83FB0C-F5F0-430A-82E5-D583DA8396C1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Farm.My.MyApplication</StartupObject>
+    <RootNamespace>Farm</RootNamespace>
+    <AssemblyName>Farm</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Farm.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Farm.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmBrandEditSearch.Designer.vb">
+      <DependentUpon>frmBrandEditSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBrandEditSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFauxLogin.Designer.vb">
+      <DependentUpon>frmFauxLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFauxLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFieldAdd.Designer.vb">
+      <DependentUpon>frmFieldAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFieldAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBrandAdd.Designer.vb">
+      <DependentUpon>frmBrandAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBrandAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBrandSwapActive.Designer.vb">
+      <DependentUpon>frmBrandSwapActive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBrandSwapActive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChemAdd.Designer.vb">
+      <DependentUpon>frmChemAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChemAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChemEditSearch.Designer.vb">
+      <DependentUpon>frmChemEditSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChemEditSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChemSwapActive.Designer.vb">
+      <DependentUpon>frmChemSwapActive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChemSwapActive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFieldEdit.Designer.vb">
+      <DependentUpon>frmFieldEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFieldEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFarm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFarm.Designer.vb">
+      <DependentUpon>frmFarm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFieldSearch.Designer.vb">
+      <DependentUpon>frmFieldSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFieldSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProdChemEdit.Designer.vb">
+      <DependentUpon>frmProdChemEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProdChemEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProdChemSwapActive.Designer.vb">
+      <DependentUpon>frmProdChemSwapActive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProdChemSwapActive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductionAdd.Designer.vb">
+      <DependentUpon>frmProductionAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductionAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductionEditSearch.Designer.vb">
+      <DependentUpon>frmProductionEditSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductionEditSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductionSwapActive.Designer.vb">
+      <DependentUpon>frmProductionSwapActive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductionSwapActive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeedAdd.Designer.vb">
+      <DependentUpon>frmSeedAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeedAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeedEditSearch.Designer.vb">
+      <DependentUpon>frmSeedEditSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeedEditSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeedSwapActive.Designer.vb">
+      <DependentUpon>frmSeedSwapActive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeedSwapActive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFieldSwapActive.Designer.vb">
+      <DependentUpon>frmFieldSwapActive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFieldSwapActive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="frmProdChemAdd.Designer.vb">
+      <DependentUpon>frmProdChemAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProdChemAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="valid.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmBrandEditSearch.resx">
+      <DependentUpon>frmBrandEditSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFauxLogin.resx">
+      <DependentUpon>frmFauxLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFieldAdd.resx">
+      <DependentUpon>frmFieldAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBrandAdd.resx">
+      <DependentUpon>frmBrandAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBrandSwapActive.resx">
+      <DependentUpon>frmBrandSwapActive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChemAdd.resx">
+      <DependentUpon>frmChemAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChemEditSearch.resx">
+      <DependentUpon>frmChemEditSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChemSwapActive.resx">
+      <DependentUpon>frmChemSwapActive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFieldEdit.resx">
+      <DependentUpon>frmFieldEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFarm.resx">
+      <DependentUpon>frmFarm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFieldSearch.resx">
+      <DependentUpon>frmFieldSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProdChemEdit.resx">
+      <DependentUpon>frmProdChemEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProdChemSwapActive.resx">
+      <DependentUpon>frmProdChemSwapActive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProductionAdd.resx">
+      <DependentUpon>frmProductionAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProductionEditSearch.resx">
+      <DependentUpon>frmProductionEditSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProductionSwapActive.resx">
+      <DependentUpon>frmProductionSwapActive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeedAdd.resx">
+      <DependentUpon>frmSeedAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeedEditSearch.resx">
+      <DependentUpon>frmSeedEditSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeedSwapActive.resx">
+      <DependentUpon>frmSeedSwapActive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFieldSwapActive.resx">
+      <DependentUpon>frmFieldSwapActive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProdChemAdd.resx">
+      <DependentUpon>frmProdChemAdd.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FarmBLL\FarmBLL.vbproj">
+      <Project>{8CF97EDF-FF3D-43F1-BB3C-5C50B445364D}</Project>
+      <Name>FarmBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FarmDataTypes\FarmDataTypes.vbproj">
+      <Project>{CDBE195F-C4FB-45CE-B646-842D50424072}</Project>
+      <Name>FarmDataTypes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Notes-DiscardedMethods.txt" />
+    <Content Include="Notes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

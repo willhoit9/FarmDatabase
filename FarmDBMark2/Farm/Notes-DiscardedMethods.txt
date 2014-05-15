@@ -1,0 +1,68 @@
+﻿
+
+
+'/////////////FROM frmFarm//////////////////
+'/////////////FROM frmFarm//////////////////
+
+    ' Private Sub lvField_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles lvField.SelectedIndexChanged
+
+    'Dim myField = Me.lvField.SelectedItems
+
+    'If myField.Count Then
+    '    MsgBox("you picked " & myField(0).SubItems(2).Text & " " & myField(0).SubItems(1).Text & ".")
+    'End If
+
+    '  End Sub
+
+
+
+    'Private Sub lvField_DoubleClick(sender As Object, e As System.EventArgs) Handles lvField.DoubleClick
+
+    'End Sub
+
+
+
+
+	
+
+    'Private Sub btnAddField_Click(sender As System.Object, e As System.EventArgs)
+    '    addField3()
+    'End Sub
+
+    'Private Sub addField3()
+    '    Dim fieldname As String
+    '    Dim acres As Integer
+    '    Dim owner As String
+    '    Dim success As Boolean = False
+
+    '    fieldname = txtFieldName.Text.ToString
+    '    acres = CInt(txtAcres.Text)
+    '    owner = txtOwner.Text.ToString
+
+    '    '  Dim myFieldManager = New FieldManager
+
+    '    success = _myFieldManager.addAField(fieldname, acres, owner)
+
+    '    If success = True Then
+    '        MsgBox("The Field """ & fieldname & """ was added to the Fields Table.")
+    '    End If
+
+    '    txtFieldName.Clear()
+    '    txtAcres.Clear()
+    '    txtOwner.Clear()
+
+    '    populateFieldListview(lvField, 0, True)
+    'End Sub
+
+
+
+
+
+
+
+	'/////////////END frmFarm//////////////////
+	'/////////////END frmFarm//////////////////
+
+
+
+
